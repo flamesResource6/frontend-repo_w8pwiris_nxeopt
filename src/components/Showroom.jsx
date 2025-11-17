@@ -1,5 +1,5 @@
-import Spline from '@splinetool/react-spline'
 import { motion } from 'framer-motion'
+import SplineCanvas from './SplineCanvas'
 
 export default function Showroom() {
   const altScene = import.meta.env.VITE_SPLINE_ALT_URL ||
@@ -22,15 +22,8 @@ export default function Showroom() {
             <a href="/model" className="rounded-full px-4 py-2 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white text-sm">Open Full View</a>
           </div>
 
-          <div className="mt-10 relative rounded-3xl border border-white/10 overflow-hidden shadow-2xl shadow-black/40 bg-gradient-to-br from-cyan-500/10 to-fuchsia-500/10">
-            <div className="absolute inset-0 bg-[conic-gradient(from_180deg_at_50%_50%,rgba(255,255,255,0.06),transparent_60%)]" />
-            <div className="absolute inset-0 mix-blend-screen opacity-30 bg-[radial-gradient(circle_at_30%_20%,#22d3ee,transparent_40%),radial-gradient(circle_at_70%_80%,#e879f9,transparent_40%)]" />
-            <div className="aspect-[21/9] relative">
-              <div className="absolute inset-0">
-                <Spline scene={altScene} />
-              </div>
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#05060f]/40 via-transparent to-transparent" />
-            </div>
+          <div className="mt-10">
+            <SplineCanvas scene={altScene} aspect="21/9" />
           </div>
         </motion.div>
       </div>

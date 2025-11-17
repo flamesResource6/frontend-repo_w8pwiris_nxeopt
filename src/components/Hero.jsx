@@ -1,13 +1,13 @@
-import Spline from '@splinetool/react-spline'
 import { motion } from 'framer-motion'
+import SplineCanvas from './SplineCanvas'
 
 export default function Hero() {
-  const scene = 'https://prod.spline.design/sbnqZNZdJSLK7U2A/scene.splinecode'
+  const scene = import.meta.env.VITE_SPLINE_DESIGN_URL || 'https://prod.spline.design/sbnqZNZdJSLK7U2A/scene.splinecode'
 
   return (
     <section className="relative h-[90vh] md:h-[92vh] overflow-hidden bg-[#05060f]">
       <div className="absolute inset-0">
-        <Spline scene={scene} />
+        <SplineCanvas scene={scene} aspect="21/9" rounded="rounded-none" />
       </div>
 
       <div className="relative z-10 h-full">
